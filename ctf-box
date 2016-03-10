@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]] ; then
+    echo 'Usage: ./ctf-box [base directory]'
+    exit 1
+fi
+
+docker build -t ctfbox .
+docker run -t -i --rm=true -v $1:/ctf ctfbox /usr/bin/zsh
